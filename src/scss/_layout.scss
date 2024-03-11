@@ -150,6 +150,11 @@ header {
     /* Andra stilar... */
 }
 
+.poster {
+    border-radius: 2%;
+    box-shadow: 14px -10px 20px 0px black;
+}
+
 // Map
 // #map {
 //     height: 500px;
@@ -183,7 +188,8 @@ header {
     box-shadow: 0 0 3em white;
 }
 
-.earth, .moon {
+.earth,
+.moon {
     position: absolute;
     border-style: solid;
     border-color: white transparent transparent transparent;
@@ -197,6 +203,7 @@ header {
     width: 30em;
     height: 30em;
     animation: orbit 36.5s linear infinite;
+    
 }
 
 .moon {

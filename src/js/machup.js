@@ -18,6 +18,7 @@ function searchOMDb(searchTerm) {
                 // omdbResults.appendChild(titleHeading);
 
                 let posterImage = document.createElement("img");
+                posterImage.classList.add("poster");
                 posterImage.src = poster;
                 omdbResults.appendChild(posterImage);
             } else {
