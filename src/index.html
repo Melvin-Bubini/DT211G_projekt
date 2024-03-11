@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt-DT211G</title>
+    <link rel="stylesheet" href="scss/main.scss">
+    <link rel="shortcut icon" href="pictures/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6244adef98.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img id="logo" src="pictures/standardLogo.svg" alt="Logga"></a>
+        <a id="logo-text" href="index.html">
+            <h3>Projekt</h3>
+        </a>
+        <ul id="bigScreenList">
+            <li><a class="menyLänkar" href="index.html">Startsida</a></li>
+            <li><a class="menyLänkar" href="">Sass</a></li>
+            <li><a class="menyLänkar" href="">Animering</a></li>
+            <li><a class="menyLänkar" href="">Diagram</a></li>
+            <li><a class="menyLänkar" href="">Karta</a></li>
+        </ul>
+        <button class="menu-btn open" id="open-menu">
+            <span class="menu-icon">
+                <span class="bars"></span>
+                <span class="bars"></span>
+                <span class="bars"></span>
+            </span>
+            <span class="menu-text">Meny</span>
+        </button>
+        <nav id="nav-menu">
+            <button class="menu-btn close" id="close-menu">
+                <span class="menu-icon">
+                    <span class="bars cross1"></span>
+                    <span class="bars cross2"></span>
+                </span>
+                <span class="menu-text">Stäng</span>
+            </button>
+            <ul>
+                <li><a href="index.html">Startsida</a></li>
+                <li><a href="">Sass</a></li>
+                <li><a href="">Animering</a></li>
+                <li><a href="">Diagram</a></li>
+                <li><a href="">Karta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Karta <i class="fa-solid fa-map-location-dot map-icon"></i></h1>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Sök efter plats">
+            <button id="mapSubmit" type="submit">Sök</button>
+        </form>
+
+        <div id="movie-results">
+            <div id="omdb-results"></div>
+            <ul id="watchmode-results"></ul>
+
+        </div>
+
+        <div class="solarSystem">
+            <div class="sun"></div>
+            <div class="earth">
+                <div class="moon"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>@Melvin Bubini, 2024</p>
+    </footer>
+
+    <script type="module" src="js/menu.js"></script>
+    <script type="module" src="js/machup.js"></script>
+    <!-- <script type="module" src="js/map.js"></script> -->
+    <!-- <script type="module" src="js/youtube.js"></script>  -->
+    <!-- <script type="module" src="js/movie.js"></script>  -->
+</body>
+
+</html>

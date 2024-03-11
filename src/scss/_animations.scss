@@ -1,0 +1,29 @@
+
+
+.earth, .moon::before {
+    content: ' '; /* Lägg till detta för att skapa pseudo-elementet */
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: aqua;
+}
+
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+}
+
+@keyframes orbit {
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,85 @@
+@use 'base';
+
+/*menyknapp för att öppna menyn*/
+
+#open-menu {
+    margin-left: auto;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border: solid black 2px;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.menu-btn .menu-text {
+    display: inline-block;
+    @include base.h2-styles;
+}
+
+.menu-btn:hover {
+    box-shadow: 0 0px 5px black;
+}
+
+.menu-icon {
+    margin-right: 10Px;
+}
+
+.bars {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    margin: 5px 0;
+}
+
+/*menyknapp för stäng*/
+.close {
+    padding: 10px 15px;
+}
+
+/*roterar två streck till ett kryss*/
+.cross1 {
+    width: 25px;
+    transform: rotate(45deg);
+    position: relative;
+    top: 5px;
+}
+
+.cross2 {
+    width: 25px;
+    transform: rotate(135deg);
+    position: relative;
+    top: -3px;
+}
+
+// MAIN STYLES
+
+main {
+    @include base.center-element;
+}
+
+form {
+    @include base.center-element;
+}
+
+#search-input {
+    width: 100%;
+    margin: 1em 0;
+    height: 2em;
+}
+
+#search-form {
+    width: 50%;
+    margin: 0 0 1em 0;
+}
+
+#mapSubmit {
+    @include base.h2-styles;
+    border: 2px solid black;
+    padding: 0em 2em;
+    background-color: white;
+}

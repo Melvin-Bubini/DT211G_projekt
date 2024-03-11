@@ -1,0 +1,282 @@
+@use 'base';
+@use 'animations';
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0%;
+    margin: 0%;
+    overflow-x: hidden;
+    line-height: base.$line-height;
+}
+
+/* HEADER STYLES*/
+
+/* STÖRRE SKÄRMAR */
+header {
+    display: flex;
+    align-items: center;
+    background-color: base.$main-color;
+}
+
+#logo {
+    width: 5em;
+}
+
+#logo-text {
+    color: base.$text-color;
+    width: fit-content;
+    text-decoration: none;
+    margin-left: 1em;
+    width: 15%;
+}
+
+#open-menu {
+    display: none;
+}
+
+#nav-menu {
+    display: none;
+}
+
+#bigScreenList {
+    display: flex;
+    width: 65%;
+    list-style-type: none;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1em;
+}
+
+.menyLänkar {
+    color: base.$text-color;
+    text-decoration: none;
+    @include base.h2-styles;
+    padding: 0.5em;
+}
+
+.menyLänkar:hover {
+    cursor: pointer;
+    color: white;
+    background-color: darken(base.$main-color, 10%);
+    border: solid black 3px;
+}
+
+
+
+/* MOBILLÄGE */
+@media screen and (max-width: 800px) {
+
+    #bigScreenList {
+        display: none;
+    }
+
+    #open-menu {
+        display: flex;
+    }
+
+    nav {
+        background-color: base.$main-color;
+        box-shadow: 0 0px 10px black;
+        font-size: 26px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        display: none;
+        z-index: 1000;
+        width: 50%;
+    }
+
+    nav ul {
+        width: 100%;
+        list-style-type: none;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    nav li {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    nav a {
+        color: base.$text-color;
+        text-decoration: none;
+        font-weight: 600;
+        @include base.p-styles;
+    }
+
+    nav a:hover {
+        cursor: pointer;
+        color: white;
+    }
+
+    .menu-text {
+        color: base.$text-color;
+    }
+}
+
+
+
+// MAIN STYLES 
+
+// Movies
+
+#movie-results {
+    @include base.center-element;
+
+}
+
+#fact {
+    height: 100%;
+    width: 300px;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+#factFrame {
+    height: 100%;
+    width: 100%;
+}
+
+.new-list-item {
+    @include base.p-styles;
+    font-weight: 600;
+    margin-bottom: 1em;
+    /* Andra stilar... */
+}
+
+// Map
+// #map {
+//     height: 500px;
+//     width: 50%;
+// }
+
+// #mapFrame {
+//     height: 100%;
+//     width: 100%;
+//     border-radius: 10%;
+//     box-shadow: 14px -10px 20px 0px black;
+// }
+
+// SOLAR SYSTEM
+
+.solarSystem {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+}
+
+.sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+}
+
+.earth, .moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: orbit 36.5s linear infinite;
+}
+
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: orbit 2.7s infinite linear;
+}
+
+
+/* FOOTER STYLES */
+
+footer {
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 2em;
+    background-color: base.$main-color;
+}
+
+footer p {
+    width: fit-content;
+    margin-left: 2em;
+    font-weight: 600;
+    margin-top: 1em;
+    @include base.p-styles;
+}
+
+
+// FÄRGSCHEMAN
+
+@media (prefers-color-scheme: light) {
+
+    header,
+    footer,
+    nav,
+    .menu-btn {
+        background-color: base.$main-color;
+    }
+
+    body {
+        background-color: base.$background-color;
+    }
+
+    p,
+    h1,
+    h2,
+    li,
+    ul,
+    .formRubrik {
+        color: base.$text-color;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    header,
+    footer,
+    nav,
+    .menu-btn {
+        background-color: base.$main-color-dark;
+    }
+
+    body {
+        background-color: base.$background-color-dark;
+    }
+
+    p,
+    h1,
+    h2,
+    .menyLänkar,
+    li,
+    ul,
+    .formRubrik {
+        color: base.$text-color-dark;
+    }
+
+    .menyLänkar:hover {
+        color: base.$text-color;
+    }
+}
