@@ -40,7 +40,7 @@ document.getElementById("deleteBtn").addEventListener("click", function reset() 
 
 
 function searchOMDb(searchTerm) {
-    let movieUrl = `http://www.omdbapi.com/?t=${encodeURIComponent(searchTerm)}&apikey=a3023c8d`;
+    let movieUrl = `https://www.omdbapi.com/?t=${encodeURIComponent(searchTerm)}&apikey=a3023c8d`;
 
     fetch(movieUrl)
         .then(response => response.json())
@@ -49,7 +49,6 @@ function searchOMDb(searchTerm) {
             omdbResults.innerHTML = ""; // Rensa tidigare resultat
 
             if (data.Response === "True") {
-                let title = data.Title;
                 let poster = data.Poster;
 
                 let posterImage = document.createElement("img");
