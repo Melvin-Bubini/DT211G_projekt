@@ -68,8 +68,10 @@ form {
 
 #search-input {
     width: 100%;
-    margin: 1em 0;
-    height: 2em;
+    margin: 2em 0  ;
+    padding: 0%;
+    border: 5px solid black;
+    @include base.h2-styles;
 }
 
 #search-form {
@@ -79,10 +81,31 @@ form {
 
 #mapSubmit {
     @include base.h2-styles;
-    border: 2px solid black;
+    border: 5px solid black;
     padding: 0em 2em;
     background-color: white;
     border-radius: 2%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+#mapSubmit:hover {
+    cursor: pointer;
+    font-weight: 800;
+}
+
+#deleteBtn {
+    @include base.h2-styles;
+    border: 5px solid black;
+    padding: 0em 2em;
+    background-color: white;
+    border-radius: 2%;
+    margin-bottom: 1em;
+}
+
+#deleteBtn:hover {
+    font-weight: 800;
+    cursor: pointer;
 }
 
 // Ladding

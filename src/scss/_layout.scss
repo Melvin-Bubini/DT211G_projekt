@@ -131,17 +131,6 @@ header {
 
 }
 
-#fact {
-    height: 100%;
-    width: 300px;
-    margin-top: 2em;
-    margin-bottom: 3em;
-}
-
-#factFrame {
-    height: 100%;
-    width: 100%;
-}
 
 .new-list-item {
     @include base.p-styles;
@@ -153,67 +142,18 @@ header {
 .poster {
     border-radius: 2%;
     box-shadow: 14px -10px 20px 0px black;
+    transition: transform 1s ease;
 }
 
-// Map
-// #map {
-//     height: 500px;
-//     width: 50%;
-// }
-
-// #mapFrame {
-//     height: 100%;
-//     width: 100%;
-//     border-radius: 10%;
-//     box-shadow: 14px -10px 20px 0px black;
-// }
-
-// SOLAR SYSTEM
-
-.solarSystem {
-    font-size: 10px;
-    width: 40em;
-    height: 40em;
-    position: relative;
+.poster:hover {
+    transform: scale(1.1);
+    /* Zooma in till 110% av originalstorleken */
 }
 
-.sun {
-    position: absolute;
-    top: 15em;
-    left: 15em;
-    width: 10em;
-    height: 10em;
-    background-color: yellow;
-    border-radius: 50%;
-    box-shadow: 0 0 3em white;
+.poster:not(:hover) {
+    transform: scale(1);
+    /* Återgå till originalstorlek när musen inte längre hovrar över bilden */
 }
-
-.earth,
-.moon {
-    position: absolute;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
-    border-width: 0.1em 0.1em 0 0;
-    border-radius: 50%;
-}
-
-.earth {
-    top: 5em;
-    left: 5em;
-    width: 30em;
-    height: 30em;
-    animation: orbit 36.5s linear infinite;
-    
-}
-
-.moon {
-    top: 0;
-    right: 0;
-    width: 8em;
-    height: 8em;
-    animation: orbit 2.7s infinite linear;
-}
-
 
 /* FOOTER STYLES */
 
@@ -255,6 +195,7 @@ footer p {
     h2,
     li,
     ul,
+    span,
     .formRubrik {
         color: base.$text-color;
     }
@@ -279,6 +220,7 @@ footer p {
     .menyLänkar,
     li,
     ul,
+    span,
     .formRubrik {
         color: base.$text-color-dark;
     }

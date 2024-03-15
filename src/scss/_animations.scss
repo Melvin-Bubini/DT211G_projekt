@@ -1,33 +1,17 @@
+@use 'base';
 
 
-.earth, .moon::before {
-    content: ' '; /* Lägg till detta för att skapa pseudo-elementet */
-    position: absolute;
-    border-radius: 50%;
+@keyframes zoom-in-animation {
+  from {
+    transform: scale(1); /* Ingen förändring från originalstorlek */
+  }
+  to {
+    transform: scale(1.1); /* Förstorning till 120% av originalstorleken */
+  }
 }
 
-.earth::before {
-    top: 2.8em;
-    right: 2.8em;
-    width: 3em;
-    height: 3em;
-    background-color: aqua;
-}
 
-.moon::before {
-    top: 0.8em;
-    right: 0.2em;
-    width: 1.2em;
-    height: 1.2em;
-    background-color: silver;
-}
-
-@keyframes orbit {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
+// LADDNING
 @keyframes ball {
     0% {
       transform: translate(0, 0);
@@ -164,3 +148,31 @@
       transform: scale(1, 1);
     }
   }
+
+// SMOKE
+
+.nighteffecttext{
+  color: base.$text-color;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer
+}
+.nighteffecttext span{
+  transition: .5s linear
+}
+.nighteffecttext:hover span:nth-child(1){
+  margin-right: 5px
+}
+
+.nighteffecttext:hover span:nth-child(2){
+  margin-left: 30px
+}
+.nighteffecttext:hover span{
+  color: #fff;
+  cursor: default;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff, 
+               0 0 40px #fff;
+}

@@ -16,44 +16,14 @@
         <a id="logo-text" href="index.html">
             <h1>Projekt</h1>
         </a>
-        <!-- <ul id="bigScreenList">
-            <li><a class="menyLänkar" href="index.html">Startsida</a></li>
-            <li><a class="menyLänkar" href="">Sass</a></li>
-            <li><a class="menyLänkar" href="">Animering</a></li>
-            <li><a class="menyLänkar" href="">Diagram</a></li>
-            <li><a class="menyLänkar" href="">Karta</a></li>
-        </ul>
-        <button class="menu-btn open" id="open-menu">
-            <span class="menu-icon">
-                <span class="bars"></span>
-                <span class="bars"></span>
-                <span class="bars"></span>
-            </span>
-            <span class="menu-text">Meny</span>
-        </button>
-        <nav id="nav-menu">
-            <button class="menu-btn close" id="close-menu">
-                <span class="menu-icon">
-                    <span class="bars cross1"></span>
-                    <span class="bars cross2"></span>
-                </span>
-                <span class="menu-text">Stäng</span>
-            </button>
-            <ul>
-                <li><a href="index.html">Startsida</a></li>
-                <li><a href="">Sass</a></li>
-                <li><a href="">Animering</a></li>
-                <li><a href="">Diagram</a></li>
-                <li><a href="">Karta</a></li>
-            </ul>
-        </nav> -->
     </header>
 
     <main>
-        <h1>Filmer <i class="fa-solid fa-clapperboard"></i></h1>
+        <h1 class="nighteffecttext"><span>FILMER<i class="fa-solid fa-clapperboard"></i></span></h1>
         <form id="search-form">
             <input type="text" id="search-input" placeholder="Sök efter filmer">
             <button id="mapSubmit" type="submit">Sök</button>
+            <button id="deleteBtn" type="reset">Rensa</button>
         </form>
 
         <div class="loader">
@@ -64,7 +34,7 @@
             <div class="loader__bar"></div>
             <div class="loader__ball"></div>
         </div>
-        
+
         <div id="movie-results">
             <div id="omdb-results"></div>
             <div id="watchmode-title"></div>
@@ -72,14 +42,12 @@
 
         </div>
 
-
-
-        <div class="solarSystem">
+        <!-- <div class="solarSystem">
             <div class="sun"></div>
             <div class="earth">
                 <div class="moon"></div>
             </div>
-        </div>
+        </div> -->
     </main>
 
     <footer>

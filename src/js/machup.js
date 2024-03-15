@@ -1,4 +1,5 @@
 "use strict";
+
 document.getElementById("search-form").addEventListener("submit", function (event) {
     event.preventDefault(); // Förhindra standardformulärinsändning
     let searchTerm = document.getElementById("search-input").value;
@@ -20,12 +21,23 @@ document.getElementById("search-form").addEventListener("submit", function (even
         omdbResults.innerHTML = ""; // Rensa tidigare resultat
         watchmodeTitle.innerHTML = ""; // Rensa tidigare resultat
         watchmodeResults.innerHTML = ""; // Rensa tidigare resultat
-        
+
         // Efter 2 sekunder, kör sökfunktionerna
         searchWatchmode(searchTerm);
         searchOMDb(searchTerm);
     }, 1500); // 1500 millisekunder motsvarar 1 sekund
 });
+
+document.getElementById("deleteBtn").addEventListener("click", function reset() {
+    let omdbResults = document.getElementById("omdb-results");
+    let watchmodeResults = document.getElementById("watchmode-results");
+    let watchmodeTitle = document.getElementById("watchmode-title");
+
+    omdbResults.innerHTML = ""; // Rensa tidigare resultat
+    watchmodeTitle.innerHTML = ""; // Rensa tidigare resultat
+    watchmodeResults.innerHTML = ""; // Rensa tidigare resultat
+});
+
 
 function searchOMDb(searchTerm) {
     let movieUrl = `http://www.omdbapi.com/?t=${encodeURIComponent(searchTerm)}&apikey=a3023c8d`;
@@ -39,10 +51,6 @@ function searchOMDb(searchTerm) {
             if (data.Response === "True") {
                 let title = data.Title;
                 let poster = data.Poster;
-
-                // let titleHeading = document.createElement("h3");
-                // titleHeading.textContent = title;
-                // omdbResults.appendChild(titleHeading);
 
                 let posterImage = document.createElement("img");
                 posterImage.classList.add("poster");
@@ -71,11 +79,12 @@ function searchWatchmode(searchTerm) {
             watchmodeResults.innerHTML = ""; // Rensa tidigare resultat
             titleHeading.innerHTML = ""; // Rensa tidigare resultat
 
-            titleHeading.textContent = `Alla titlar med ${searchTerm}`;
-            watchmodeTitle.appendChild(titleHeading);
+
 
             if (data.title_results && data.title_results.length > 0) {
                 data.title_results.forEach(title => {
+                    titleHeading.textContent = `Alla titlar med ${searchTerm}`;
+                    watchmodeTitle.appendChild(titleHeading);
                     let listItem = document.createElement("li");
                     listItem.classList.add("new-list-item");
                     listItem.textContent = title.name;
@@ -89,3 +98,4 @@ function searchWatchmode(searchTerm) {
         })
         .catch(error => console.error("Något gick fel med fetch:", error));
 }
+
