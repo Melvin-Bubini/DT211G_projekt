@@ -131,6 +131,9 @@ header {
 
 }
 
+#watchmode-title {
+    margin-left: 1em
+}
 
 .new-list-item {
     @include base.p-styles;
