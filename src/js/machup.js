@@ -1,4 +1,31 @@
 "use strict";
+document.getElementById("search-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Förhindra standardformulärinsändning
+    let searchTerm = document.getElementById("search-input").value;
+
+    // Hämta loader-elementet
+    let loader = document.querySelector(".loader");
+
+    // Visa loader i en sekund
+    loader.style.display = "block";
+
+    // Efter en sekund, ändra display tillbaka till "none"
+    setTimeout(function () {
+        loader.style.display = "none";
+
+        let omdbResults = document.getElementById("omdb-results");
+        let watchmodeResults = document.getElementById("watchmode-results");
+        let watchmodeTitle = document.getElementById("watchmode-title");
+
+        omdbResults.innerHTML = ""; // Rensa tidigare resultat
+        watchmodeTitle.innerHTML = ""; // Rensa tidigare resultat
+        watchmodeResults.innerHTML = ""; // Rensa tidigare resultat
+        
+        // Efter 2 sekunder, kör sökfunktionerna
+        searchWatchmode(searchTerm);
+        searchOMDb(searchTerm);
+    }, 1500); // 1500 millisekunder motsvarar 1 sekund
+});
 
 function searchOMDb(searchTerm) {
     let movieUrl = `http://www.omdbapi.com/?t=${encodeURIComponent(searchTerm)}&apikey=a3023c8d`;
@@ -30,13 +57,6 @@ function searchOMDb(searchTerm) {
         .catch(error => console.error("Något gick fel:", error));
 }
 
-document.getElementById("search-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Förhindra standardformulärinsändning
-    let searchTerm = document.getElementById("search-input").value;
-    searchWatchmode(searchTerm);
-    searchOMDb(searchTerm);
-});
-
 function searchWatchmode(searchTerm) {
     let url = `https://api.watchmode.com/v1/search/?apiKey=nBSOd4NMOHJGhsWCrd5aQ1lKCSQJgehofRSszRIC&search_field=name&search_value=${encodeURIComponent(searchTerm)}`;
 
@@ -44,11 +64,15 @@ function searchWatchmode(searchTerm) {
         .then(response => response.json())
         .then(data => {
             let watchmodeResults = document.getElementById("watchmode-results");
-            watchmodeResults.innerHTML = ""; // Rensa tidigare resultat
+            let watchmodeTitle = document.getElementById("watchmode-title");
             let titleHeading = document.createElement("h1");
-            let searchTermUpperCase = searchTerm.toUpperCase(); // Konvertera searchTerm till stora bokstäver
+
+            watchmodeTitle.innerHTML = ""; // Rensa tidigare resultat
+            watchmodeResults.innerHTML = ""; // Rensa tidigare resultat
+            titleHeading.innerHTML = ""; // Rensa tidigare resultat
+
             titleHeading.textContent = `Alla titlar med ${searchTerm}`;
-            watchmodeResults.insertAdjacentElement("beforebegin", titleHeading);
+            watchmodeTitle.appendChild(titleHeading);
 
             if (data.title_results && data.title_results.length > 0) {
                 data.title_results.forEach(title => {

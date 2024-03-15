@@ -56,11 +56,23 @@
             <button id="mapSubmit" type="submit">Sök</button>
         </form>
 
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+        
         <div id="movie-results">
             <div id="omdb-results"></div>
+            <div id="watchmode-title"></div>
             <ul id="watchmode-results"></ul>
 
         </div>
+
+
 
         <div class="solarSystem">
             <div class="sun"></div>
@@ -74,11 +86,7 @@
         <p>@Melvin Bubini, 2024</p>
     </footer>
 
-    <!-- <script type="module" src="js/menu.js"></script> -->
     <script type="module" src="js/machup.js"></script>
-    <!-- <script type="module" src="js/map.js"></script> -->
-    <!-- <script type="module" src="js/youtube.js"></script>  -->
-    <!-- <script type="module" src="js/movie.js"></script>  -->
 </body>
 
 </html>
