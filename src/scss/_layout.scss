@@ -131,6 +131,16 @@ header {
 
 }
 
+#omdb-results {
+    @include base.center-element;
+
+}
+
+.movieDescription {
+    @include base.center-element;
+    width: 50%;
+}
+
 #watchmode-title {
     margin-left: 1em
 }
@@ -139,7 +149,16 @@ header {
     @include base.p-styles;
     font-weight: 600;
     margin-bottom: 1em;
-    /* Andra stilar... */
+}
+
+.new-list-item:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.new-list-item:not(:hover) {
+    transform: scale(1);
+    /* Återgå till originalstorlek när musen inte längre hovrar över bilden */
 }
 
 .poster {
